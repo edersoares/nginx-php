@@ -15,6 +15,8 @@ services:
 
   php:
     container_name: php
-    image: php:fpm
+    build: ./services/php
     volumes:
       - ./application:/application
+      - ./services/php/conf.d:/usr/local/etc/php/conf.d
+      - ./services/php/php.ini:/usr/local/etc/php/php.ini
