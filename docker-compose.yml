@@ -12,6 +12,7 @@ services:
       - ./services/nginx/conf.d:/etc/nginx/conf.d
     links:
       - php
+    working_dir: /application
 
   php:
     container_name: php
@@ -21,3 +22,4 @@ services:
     volumes:
       - ./application:/application
       - ./services/php/php.ini:/usr/local/etc/php/php.ini
+    working_dir: /application
