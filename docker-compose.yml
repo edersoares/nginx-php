@@ -4,7 +4,7 @@ services:
 
   nginx:
     container_name: nginx
-    image: nginx
+    build: ./services/nginx
     ports:
       - 80:80
     volumes:
@@ -16,7 +16,8 @@ services:
   php:
     container_name: php
     build: ./services/php
+    environment:
+      - XDEBUG_REMOTE_HOST=${XDEBUG_REMOTE_HOST}
     volumes:
       - ./application:/application
-      - ./services/php/conf.d:/usr/local/etc/php/conf.d
       - ./services/php/php.ini:/usr/local/etc/php/php.ini
