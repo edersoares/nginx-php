@@ -17,8 +17,11 @@ Just run in terminal:
 git clone https://github.com/edersoares/nginx-php.git
 cd nginx-php
 
+# copy the .env file
+cp .env.example .env
+
 # execute the container
-./compose.sh up
+docker-compose up
 ```
 And access [http://localhost](http://localhost) to see the PHP Version x.x.x installed.
 
