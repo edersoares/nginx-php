@@ -18,8 +18,19 @@ services:
   php:
     container_name: php
     build: ./services/php
+    links:
+      - mariadb
     working_dir: /application
     volumes:
       - ./application:/application
+    env_file:
+      - .env
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    restart: always
+    volumes:
+      - ./storage/database:/var/lib/mysql
     env_file:
       - .env
