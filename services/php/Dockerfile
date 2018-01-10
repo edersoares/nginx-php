@@ -6,8 +6,13 @@ RUN apt-get update -y
 
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
+
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
+
+RUN pecl install redis
+RUN docker-php-ext-enable redis
+RUN rm -rf /tmp/pear
 
 ENV XDEBUG_IDEKEY xdebug
 ENV XDEBUG_REMOTE_HOST 127.0.0.1

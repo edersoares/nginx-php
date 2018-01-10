@@ -20,6 +20,7 @@ services:
     build: ./services/php
     links:
       - mariadb
+      - redis
     working_dir: /application
     volumes:
       - ./application:/application
@@ -29,6 +30,15 @@ services:
   mariadb:
     container_name: mariadb
     image: mariadb
+    restart: always
+    volumes:
+      - ./storage/database:/var/lib/mysql
+    env_file:
+      - .env
+
+  redis:
+    container_name: redis
+    image: redis
     restart: always
     volumes:
       - ./storage/database:/var/lib/mysql
