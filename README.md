@@ -21,7 +21,7 @@ cd nginx-php
 cp .env.example .env
 
 # execute the container
-docker-compose up
+docker-compose up --build
 ```
 And access [http://localhost](http://localhost) to see the PHP Version x.x.x installed.
 
