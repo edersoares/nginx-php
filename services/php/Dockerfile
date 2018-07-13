@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.2-fpm
 
 MAINTAINER Eder Soares
 
@@ -7,8 +7,11 @@ RUN apt-get update -y
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 
+RUN apt-get install -y libpq-dev
+
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_pgsql
 
 RUN pecl install redis
 RUN docker-php-ext-enable redis
